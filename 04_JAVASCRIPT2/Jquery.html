@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script>
+      $(document).ready(function () {
+        $("h1").css("color", "red");
+        $("h1").css("background", "black");
+      });
+    </script> -->
+
+    <!-- <script>
+      $(document).ready(function () {
+        $("img").attr("alt", "jquery 라이브러리를 사용한 속성 지정");
+        $("img").attr("src", "http://via.placeholer.com/100x100");
+        $("img").attr("width", "100");
+      });
+    </script> -->
+
+    <!-- <script>
+      $(document).ready(function () {
+        $(".box").css("float", "left");
+        $(".box").css("margin", 10);
+        $(".box").css("width", 100);
+        $(".box").css("height", 100);
+        $(".box").css("background", "red");
+        $("#yellow").css("background", "yellow");
+        $("#green").css("background", "green");
+      });
+    </script> -->
+
+    <!-- <script>
+      $(document).ready(function () {
+    
+        let output = "";
+        for (let i = 0; i < 256; i++) {
+          output += "<div></div>";
+        }
+        document.body.innerHTML = output;
+
+       
+        $("div").css({
+          height: 2,
+          backgroundColor: function (i) {
+            return "rgb(" + i + 2 + "," + i / 2 + "," + i * 2 + ")";
+          },
+        });
+      });
+    </script> -->
+
+    <!-- <script>
+      $(document).ready(function () {
+        $("h1:nth-child(1)").text('<a href="#">text()</a>');
+        $("h1:nth-child(2)").html('<a href="#">html()</a>');
+      });
+    </script> -->
+
+    <!-- <script>
+      $(document).ready(function () {
+        let text = $("h1").text();
+        let html = $("h1").html();
+        alert("text: " + text);
+        alert("html: " + html);
+      });
+    </script> -->
+
+    <!-- <style>
+      #box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      #box.hover {
+        background-color: greenyellow;
+        border-radius: 156px;
+      }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $("#box").hover(
+          function () {
+            $("#box").addClass("hover");
+          },
+          function () {
+            $("#box").removeClass("hover");
+          }
+        );
+      });
+    </script> -->
+
+    <!-- <script>
+      $(document).ready(function () {
+        $("h1").click(function () {
+          alert("클릭!");
+        });
+      });
+    </script> -->
+
+    <!-- <script>
+      $(document).ready(function () {
+        $("h1").hover(
+          function () {
+            $(this).css({
+              padding: 50,
+              width: 100,
+              height: 100,
+              background: "green",
+              color: "yellow",
+            });
+          },
+          function () {
+            $(this).css({
+              background: "",
+              color: "",
+            });
+          }
+        );
+      });
+    </script> -->
+
+    <!-- <script>
+      $(document).ready(function () {
+        $("#box")
+          .css({
+            width: "100",
+            background: "orange",
+            height: "100",
+          })
+          .on("click", function () {
+            $(this).css("background", "red");
+          })
+          .on("mouseenter", function () {
+            $(this).css("background", "yellow");
+          })
+          .on("mouseenter", function () {
+            $(this).css("background", "green");
+          });
+      });
+    </script> -->
+
+    <!-- <script>
+      $(document).ready(function () {
+        $("a").click(function (event) {
+          alert("click");
+          event.preventDefault();
+        });
+      });
+    </script> -->
+
+    <!-- <script>
+      $(document).ready(function () {
+        $("form").submit(function (event) {
+          let value = $("input").val();
+          if (value.replace(/[가-힣]/g, "").lenth == 0) {
+            alert("과정을 진행합니다.");
+          } else {
+            alert("한글 이름을 사용해주세요.");
+            event.preventDefault();
+          }
+        });
+      });
+    </script> -->
+
+    <!-- <script>
+      $(document).ready(function () {
+        $(document).ready(function () {
+          $("button").click(function () {
+            $(".page").fadeToggle("fast");
+          });
+        });
+      });
+    </script> -->
+
+    <!-- <script>
+      $(document).ready(function () {
+        $("#box")
+          .css({
+            width: 100,
+            height: 100,
+            background: "red",
+          })
+          .animate(
+            {
+              width: 300,
+              opacity: 0.5,
+            },
+            500
+          );
+      });
+    </script> -->
+
+    <!-- <script>
+      $(document).ready(function () {
+        $("#box")
+          .css({
+            width: 100,
+            height: 100,
+            background: "red",
+            position: "absolute",
+            left: 10,
+            top: 10,
+          })
+          .animate(
+            {
+              width: 300,
+              opacity: 0.5,
+            },
+            500
+          )
+          .animate(
+            {
+              opacity: 1,
+              left: 100,
+              top: 200,
+            },
+            500
+          );
+      });
+    </script> -->
+
+    <script>
+      $(document).ready(function () {
+        let clearOueue = false;
+        let goToEnd = false;
+
+        $("#clearOueue").change(function () {
+          clearOueue = $(this).prop("checked");
+        });
+        $("#goToEnd").change(function () {
+          clearOueue = $(this).prop("checked");
+        });
+        $("#stopButton").click(function () {
+          $("#box").stop(clearOueue, goToEnd);
+        });
+
+        $("#box").css({
+          width: 100,
+          height: 100,
+          background: "green",
+        });
+
+        setInterval(function () {
+          $("#box")
+            .animate(
+              {
+                width: 200,
+              },
+              1000
+            )
+            .delay(1000)
+            .animate(
+              {
+                width: 100,
+                height: 100,
+              },
+              1000
+            );
+        }, 3000);
+      });
+    </script>
+    <title>jquery</title>
+  </head>
+  <body>
+    <label>clearOueue</label>
+    <input id="clearOueue" type="checkbox" />
+    <br />
+    <label>goToEnd</label>
+    <input id="goToEnd" type="checkbox" />
+    <br />
+    <button id="stopButton">STOP</button>
+    <div id="box"></div>
+  </body>
+</html>
